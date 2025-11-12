@@ -31,8 +31,8 @@ jobs:
     #if: ${{ vars.USE_VARIABLES == 'true' }}
     #runs-on: ${{ vars.RUNNER }}
     runs-on: ubuntu-latest
-    #environment: ${{ vars.ENVIRONMENT_STAGE }}
-    environment: staging
+    environment: ${{ vars.ENVIRONMENT_STAGE }}
+    #environment: staging
     steps:
     - name: Use variables
       run: |
