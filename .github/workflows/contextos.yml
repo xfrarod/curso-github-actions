@@ -5,12 +5,12 @@ on:
     inputs:
       name:
         description: 'Person to greet'
-        default: 'World'
+        default: 'Panch'
         required: true
         type: string
       age:
-        description: 'Age of the user'
-        default: 'World'
+        description: 'Preferred Language'
+        default: 'Python'
         required: true
         type: choice
         options:
@@ -18,7 +18,7 @@ on:
         - JavaScript
         - Go
 env:
-  #env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
   var1: Aprendiendo
   var2: Github-Actions
   var3: Contextos
@@ -28,7 +28,7 @@ jobs:
     #name: ${{ vars.JOB_NAME }}
     name: job_contextos
     # You can use configuration variables with the `vars` context for dynamic jobs
-    if: ${{ vars.USE_VARIABLES == 'true' }}
+    #if: ${{ vars.USE_VARIABLES == 'true' }}
     #runs-on: ${{ vars.RUNNER }}
     runs-on: ubuntu-latest
     #environment: ${{ vars.ENVIRONMENT_STAGE }}
@@ -45,8 +45,9 @@ jobs:
         ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
         OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
         
-    - name: ${{ vars.HELLO_WORLD_STEP }}
-      if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
+    #- name: ${{ vars.HELLO_WORLD_STEP }}
+    - name: Hello World
+      #if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
       uses: actions/hello-world-javascript-action@main
       with:
         who-to-greet: ${{ vars.GREET_NAME }}
