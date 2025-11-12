@@ -29,7 +29,8 @@ jobs:
     name: job_contextos
     # You can use configuration variables with the `vars` context for dynamic jobs
     if: ${{ vars.USE_VARIABLES == 'true' }}
-    runs-on: ${{ vars.RUNNER }}
+    #runs-on: ${{ vars.RUNNER }}
+    runs-on: ubuntu-latest
     #environment: ${{ vars.ENVIRONMENT_STAGE }}
     environment: staging
     steps:
