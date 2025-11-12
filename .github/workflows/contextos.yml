@@ -28,7 +28,7 @@ jobs:
     #name: ${{ vars.JOB_NAME }}
     name: job_contextos
     # You can use configuration variables with the `vars` context for dynamic jobs
-    #if: ${{ vars.USE_VARIABLES == 'true' }}
+    if: ${{ vars.USE_VARIABLES == 'true' }}
     #runs-on: ${{ vars.RUNNER }}
     runs-on: ubuntu-latest
     environment: ${{ vars.ENVIRONMENT_STAGE }}
@@ -44,9 +44,8 @@ jobs:
         ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
         OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
         
-    #- name: ${{ vars.HELLO_WORLD_STEP }}
-    - name: Hello World
-      #if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
+    - name: ${{ vars.HELLO_WORLD_STEP }}
+      if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
       uses: actions/hello-world-javascript-action@main
       with:
         who-to-greet: ${{ vars.GREET_NAME }}
